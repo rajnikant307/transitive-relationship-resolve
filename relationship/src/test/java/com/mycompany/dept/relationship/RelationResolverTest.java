@@ -1,3 +1,6 @@
+/**
+ * Licensed under Apache License 2.0
+ */
 package com.mycompany.dept.relationship;
 
 import static org.junit.Assert.assertEquals;
@@ -13,6 +16,9 @@ import org.junit.Test;
  */
 public class RelationResolverTest {
 
+	/**
+	 * @throws Exception when any problem occur
+	 */
 	@Test
 	public void testRelationResolveCorrectly() throws Exception {
 		RelationResolver relationResolver = new RelationResolver(getFile("Simple.csv"));
@@ -22,6 +28,12 @@ public class RelationResolverTest {
 
 	}
 
+	/**
+	 * Helper to read file.
+	 * 
+	 * @param name of file
+	 * @return file object
+	 */
 	private File getFile(final String name) {
 		return new File(RelationResolverTest.class.getClassLoader().getResource(name).getFile());
 	}

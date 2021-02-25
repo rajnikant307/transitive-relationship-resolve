@@ -1,3 +1,6 @@
+/**
+ * Licensed under Apache License 2.0
+ */
 package com.mycompany.dept.relationship;
 
 import java.util.HashMap;
@@ -7,10 +10,25 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+/**
+ * Graph to hold and resolve relationships.
+ * 
+ * @author RDixit
+ *
+ */
 public class RelationGraph {
 
+	/**
+	 * graph instance
+	 */
 	private Map<String, LinkedList<String>> graph = new HashMap<>();
 
+	/**
+	 * Add relation to graph.
+	 * 
+	 * @param e1 first element
+	 * @param e2 second element
+	 */
 	public void addEdge(String e1, String e2) {
 		if (graph.containsKey(e1)) {
 			graph.get(e1).add(e2);
@@ -28,6 +46,9 @@ public class RelationGraph {
 		}
 	}
 
+	/**
+	 * Helper method to print resolved linear relations
+	 */
 	public void printLR() {
 		List<LinkedList<String>> results = resolveLR();
 		for (LinkedList<String> line : results) {
@@ -36,6 +57,11 @@ public class RelationGraph {
 
 	}
 
+	/**
+	 * Resolved linear relations from data.
+	 * 
+	 * @return array of linear relations
+	 */
 	public List<LinkedList<String>> resolveLR() {
 		Set<String> visited = new HashSet<>();
 		Set<String> keys = graph.keySet();
@@ -57,6 +83,13 @@ public class RelationGraph {
 		return resolutions;
 	}
 
+	/**
+	 * Helper to visit nodes recursively.
+	 * 
+	 * @param visited list of visited nodes
+	 * @param e       current element
+	 * @param list    linear relation list
+	 */
 	private void visitUtil(Set<String> visited, String e, LinkedList<String> list) {
 		visited.add(e);
 		list.add(e);
