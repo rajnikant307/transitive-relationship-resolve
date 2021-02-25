@@ -1,5 +1,5 @@
 # transitive-relationship-resolve
-This program resolve transitive dependency to linear one.
+This program resolve transitive dependency to linear one. You need to have Java 1.8 to run it.
 
 ### Build a jar
 ```
